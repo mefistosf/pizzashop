@@ -24,10 +24,18 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-TEMPLATE_DIR=[os.path.join(BASE_DIR, 'templates')]
+TEMPLATE_DIR = [os.path.join(BASE_DIR, 'templates')]
 
 ALLOWED_HOSTS = []
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+#MEDIA_ROOT = os.path.join(os.path.dirname(__file__), 'media/')
+#SITE_ROOT = PROJECT_ROOT
+
+MEDIA_URL = '/media/'
+#STATICFILES_DIRS = (
+#    '/home/andrew/Downloads/Python/Django/pizza/media'
+# )
 
 # Application definition
 
@@ -38,7 +46,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'GetPizza',
+    'getpizza',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -60,7 +68,7 @@ WSGI_APPLICATION = 'pizza.wsgi.application'
 
 DATABASES = {
     'default': {
-	'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'pizza',
         'USER': 'pizza',
         'PASSWORD': 'pizza',
@@ -86,3 +94,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/dev/howto/static-files/
 
 STATIC_URL = '/static/'
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'context_processors.default_processors',
+    )

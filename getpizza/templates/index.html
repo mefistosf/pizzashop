@@ -1,0 +1,8 @@
+<p> <div  align="center" style="background-color:black; color:white;"><h1>Make your choice:</h1></div></p>
+
+
+{% for i in data %}
+    <p><img src="{{ MEDIA_URL }}{{ i.image.url }}">{{pizza}}</p>
+    <p>This is {{i}} pizza</p>
+
+{% endfor%}
